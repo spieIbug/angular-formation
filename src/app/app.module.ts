@@ -1,12 +1,16 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppComponent } from './app.component';
-import { LeftMenuComponent } from './left-menu/left-menu.component';
-import { TopRightMenuComponent } from './top-right-menu/top-right-menu.component';
-import { ContainerComponent } from './container/container.component';
-import { FooterComponent } from './footer/footer.component';
-import { ControlSidebarComponent } from './control-sidebar/control-sidebar.component';
+import {AppComponent} from './app.component';
+import {LeftMenuComponent} from './left-menu/left-menu.component';
+import {TopRightMenuComponent} from './top-right-menu/top-right-menu.component';
+import {ContainerComponent} from './container/container.component';
+import {FooterComponent} from './footer/footer.component';
+import {ControlSidebarComponent} from './control-sidebar/control-sidebar.component';
+import { HomeComponent } from './home/home.component';
+import { CrudComponent } from './crud/crud.component';
+import {RouterModule} from '@angular/router';
+import {ROUTES} from './app.routes';
 
 @NgModule({
   declarations: [
@@ -15,12 +19,16 @@ import { ControlSidebarComponent } from './control-sidebar/control-sidebar.compo
     TopRightMenuComponent,
     ContainerComponent,
     FooterComponent,
-    ControlSidebarComponent
+    ControlSidebarComponent,
+    HomeComponent,
+    CrudComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(ROUTES)
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
