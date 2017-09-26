@@ -6,6 +6,7 @@ import { LeftMenuComponent } from './left-menu/left-menu.component';
 import { TopRightMenuComponent } from './top-right-menu/top-right-menu.component';
 import { ContainerComponent } from './container/container.component';
 import { FooterComponent } from './footer/footer.component';
+import { ControlSidebarComponent } from './control-sidebar/control-sidebar.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { FooterComponent } from './footer/footer.component';
     LeftMenuComponent,
     TopRightMenuComponent,
     ContainerComponent,
-    FooterComponent
+    FooterComponent,
+    ControlSidebarComponent
   ],
   imports: [
     BrowserModule
