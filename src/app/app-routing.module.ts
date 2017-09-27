@@ -9,6 +9,7 @@ const appRoutes: Routes = [
   {
     path: 'crud', component: CrudComponent,
     children: [
+      {path: 'new', component: ItemComponent},
       {path: ':id', component: ItemComponent}
     ]
   }

@@ -42,8 +42,22 @@ export class ItemsService {
     this.persist();
   }
 
+  maxId(): number {
+    let currentId = 0;
+    for (const item of this.items) {
+      if (item.id > currentId) {
+        currentId = item.id;
+      }
+    }
+    return currentId;
+  }
+
   save(item: Item): void {
-    this.remove(item.id);
+    if (item.id != null) {
+      this.remove(item.id);
+    } else {
+      item.id = this.maxId() + 1;
+    }
     this.items.push(item);
     this.persist();
   }
