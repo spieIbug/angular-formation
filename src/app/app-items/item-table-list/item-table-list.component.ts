@@ -27,4 +27,8 @@ export class ItemTableListComponent implements OnInit {
     this.titleFilterDisplay = true;
     this.descriptionFilterDisplay = true;
   }
+
+  remove(item: Item): void {
+    this.itemsService.remove(item.id);
+  }
 }

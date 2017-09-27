@@ -14,7 +14,10 @@
   </thead>
   <tbody>
   <tr *ngFor="let item of items">
-    <td><a href="" [routerLink]="['/crud', item.id]"><i class="fa fa-pencil-square-o"></i> {{item.id}}</a>
+    <td>
+      <a class="text-danger" (click)="remove(item)"><i class="fa fa-times"></i></a>
+      &nbsp;<a href="" [routerLink]="['/crud', item.id]"><i class="fa fa-pencil-square-o"></i> {{item.id}}
+      </a>
     </td>
     <td>{{item.title}}</td>
     <td>{{item.description}}</td>
