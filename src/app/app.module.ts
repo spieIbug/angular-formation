@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { CrudComponent } from './crud/crud.component';
 import {RouterModule} from '@angular/router';
 import {ROUTES} from './app.routes';
+import { BreadCrumbComponent } from './bread-crumb/bread-crumb.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {ROUTES} from './app.routes';
     FooterComponent,
     ControlSidebarComponent,
     HomeComponent,
-    CrudComponent
+    CrudComponent,
+    BreadCrumbComponent
   ],
   imports: [
     BrowserModule,
