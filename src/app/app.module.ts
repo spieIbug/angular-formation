@@ -10,12 +10,9 @@ import {FooterComponent} from './footer/footer.component';
 import {ControlSidebarComponent} from './control-sidebar/control-sidebar.component';
 import { HomeComponent } from './home/home.component';
 import { CrudComponent } from './crud/crud.component';
-import {RouterModule} from '@angular/router';
-import {ROUTES} from './app.routes';
 import { BreadCrumbComponent } from './bread-crumb/bread-crumb.component';
-import {ItemsService} from './items.service';
-import { ItemComponent } from './item/item.component';
 import {AppRoutingModule} from './app-routing.module';
+import {AppItemsModule} from './app-items/app-items.module';
 
 @NgModule({
   declarations: [
@@ -27,15 +24,15 @@ import {AppRoutingModule} from './app-routing.module';
     ControlSidebarComponent,
     HomeComponent,
     CrudComponent,
-    BreadCrumbComponent,
-    ItemComponent
+    BreadCrumbComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AppItemsModule
   ],
-  providers: [ItemsService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {

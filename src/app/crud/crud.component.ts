@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ItemsService} from '../items.service';
-import {Item} from '../item';
+import {ItemsService} from '../app-items/items.service';
+import {Item} from '../app-items/item';
 
 @Component({
   selector: 'app-crud',
@@ -17,11 +17,7 @@ export class CrudComponent implements OnInit {
   @Input()
   icon = 'fa-table';
 
-  private items: Item[];
-
-  constructor(private itemsService: ItemsService) {
-    this.items = itemsService.findAll();
-  }
+  constructor() {}
 
   ngOnInit() {
   }
