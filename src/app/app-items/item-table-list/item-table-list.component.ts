@@ -8,6 +8,13 @@ import {ItemsService} from '../items.service';
 })
 export class ItemTableListComponent implements OnInit {
   private items: Item[];
+  private titleFilterDisplay: boolean;
+  private descriptionFilterDisplay: boolean;
+  private filtre: Item = {
+    id : null,
+    title : '',
+    description : ''
+  };
 
   constructor(private itemsService: ItemsService) {
     this.items = itemsService.findAll();
@@ -17,4 +24,13 @@ export class ItemTableListComponent implements OnInit {
 
   }
 
+  switchStyle(event: MouseEvent) {
+    event.target.style.border = event.type === 'mouseover' ? '2px dashed #f2d2d2' : null;
+  }
+
+  displayFilter($event: MouseEvent) {
+    this.titleFilterDisplay = true;
+    this.descriptionFilterDisplay = true;
+    console.log('click');
+  }
 }

@@ -2,8 +2,14 @@
   <thead>
   <tr>
     <th>ID</th>
-    <th>TITLE</th>
-    <th>DESCIRPTION</th>
+    <th (mouseover)="switchStyle($event)" (mouseout)="switchStyle($event)" (dblclick)="displayFilter($event)">
+      <span *ngIf="!titleFilterDisplay">TITLE</span>
+      <input *ngIf="titleFilterDisplay" type="text" class="form-control" [(ngModel)] = "filtre.title">
+    </th>
+    <th (mouseover)="switchStyle($event)" (mouseout)="switchStyle($event)" (dblclick)="displayFilter($event)">
+      <span *ngIf="!descriptionFilterDisplay">DESCRIPTION</span>
+      <input *ngIf="descriptionFilterDisplay" type="text" class="form-control" [(ngModel)] = "filtre.description">
+    </th>
   </tr>
   </thead>
   <tbody>
