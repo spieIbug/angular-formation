@@ -15,6 +15,7 @@ import {ROUTES} from './app.routes';
 import { BreadCrumbComponent } from './bread-crumb/bread-crumb.component';
 import {ItemsService} from './items.service';
 import { ItemComponent } from './item/item.component';
+import {AppRoutingModule} from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { ItemComponent } from './item/item.component';
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(ROUTES)
+    AppRoutingModule
   ],
   providers: [ItemsService],
   bootstrap: [AppComponent]
