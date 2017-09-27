@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Injectable, OnInit} from '@angular/core';
 import {Item} from './item';
 
 @Injectable()
@@ -16,6 +16,12 @@ export class ItemsService {
       {id: 7, title: 'A\'m the 7th item', description: 'desc7'},
       {id: 8, title: 'A\'m the 8th item', description: 'desc8'}
     ];
+    const items = JSON.parse(localStorage.getItem('items'));
+    if (items === null) {
+      this.persist();
+    } else {
+      this.items = items;
+    }
   }
 
   findAll(): Item[] {
@@ -31,13 +37,19 @@ export class ItemsService {
     return null;
   }
 
+  remove(id: number): void {
+    this.items.splice(this.items.indexOf(this.findOne(id)), 1);
+    this.persist();
+  }
+
   save(item: Item): void {
-    let existringItem = this.findOne(item.id);
-    if (existringItem != null) {
-      existringItem = item;
-      return;
-    }
+    this.remove(item.id);
     this.items.push(item);
+    this.persist();
+  }
+
+  private persist(): void {
+    localStorage.setItem('items', JSON.stringify(this.items));
   }
 
 

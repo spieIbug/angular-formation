@@ -21,16 +21,10 @@ export class ItemTableListComponent implements OnInit {
   }
 
   ngOnInit() {
-
-  }
-
-  switchStyle(event: MouseEvent) {
-    event.target.style.border = event.type === 'mouseover' ? '2px dashed #f2d2d2' : null;
   }
 
   displayFilter($event: MouseEvent) {
     this.titleFilterDisplay = true;
     this.descriptionFilterDisplay = true;
-    console.log('click');
   }
 }
