@@ -1,4 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {ItemsService} from '../items.service';
+import {Item} from '../item';
 
 @Component({
   selector: 'app-crud',
@@ -11,10 +13,16 @@ export class CrudComponent implements OnInit {
 
   @Input()
   subTitle = 'A Crud basic vue';
-  constructor() { }
 
   @Input()
   icon = 'fa-table';
+
+  private items: Item[];
+
+  constructor(private itemsService: ItemsService) {
+    this.items = itemsService.findAll();
+  }
+
   ngOnInit() {
   }
 

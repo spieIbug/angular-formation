@@ -1,5 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import {AppComponent} from './app.component';
 import {LeftMenuComponent} from './left-menu/left-menu.component';
@@ -12,6 +13,8 @@ import { CrudComponent } from './crud/crud.component';
 import {RouterModule} from '@angular/router';
 import {ROUTES} from './app.routes';
 import { BreadCrumbComponent } from './bread-crumb/bread-crumb.component';
+import {ItemsService} from './items.service';
+import { ItemComponent } from './item/item.component';
 
 @NgModule({
   declarations: [
@@ -23,13 +26,15 @@ import { BreadCrumbComponent } from './bread-crumb/bread-crumb.component';
     ControlSidebarComponent,
     HomeComponent,
     CrudComponent,
-    BreadCrumbComponent
+    BreadCrumbComponent,
+    ItemComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [],
+  providers: [ItemsService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
