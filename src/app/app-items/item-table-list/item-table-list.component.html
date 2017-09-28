@@ -1,4 +1,3 @@
-{{filtre}}
 <table class="table table-hover table-bordered">
   <thead>
   <tr>
@@ -22,7 +21,7 @@
       <app-editable-td [inputField]="item.title" title="TITRE"  (inputChanged)="updateField($event, item, 'title')"></app-editable-td>
     </td>
     <td>
-      <app-editable-td [inputField]="item.description" title="DESCRIPTION"  (inputChanged)="updateField($event, item, 'description')"></app-editable-td>
+      <app-editable-td [inputField]="item.description" title="DESCRIPTION" (inputChanged)="updateField($event, item, 'description')"></app-editable-td>
     </td>
   </tr>
   </tbody>

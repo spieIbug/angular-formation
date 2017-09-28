@@ -1,6 +1,7 @@
 <div class="box box-default">
   <div class="box-header with-border">
-    <h3 class="box-title">Editing the item <b>{{item.title}}</b></h3>
+    <h3 class="box-title" *ngIf="item.id">Editing the item <b>{{item.title}}</b></h3>
+    <h3 class="box-title" *ngIf="!item.id">Add a new Item</h3>
   </div>
   <!-- /.box-header -->
   <!-- form start -->

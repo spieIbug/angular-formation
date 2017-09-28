@@ -43,7 +43,7 @@ export class ItemTableListComponent implements OnInit {
     this.filtre[key] = filterField;
   }
 
-  updateField(inputField: any, item: Item, key: String) {
+  updateField(inputField: any, item: Item, key: string) {
     item[key] = inputField;
     this.itemsService.save(item);
   }
