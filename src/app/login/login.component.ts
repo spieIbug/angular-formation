@@ -17,4 +17,9 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  login(): void {
+    this.userService.login();
+    console.warn('the server should answer me');
+    this.router.navigate([""]);
+  }
 }
