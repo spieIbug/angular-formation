@@ -1,17 +1,26 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
 import {HomeComponent} from './home/home.component';
 import {CrudComponent} from './crud/crud.component';
 import {ItemComponent} from './app-items/item/item.component';
+import {LoggedInGuard} from './logged-in.guard';
+import {LoginComponent} from './login/login.component';
+import {DashboardComponent} from './dashboard/dashboard.component';
+
 
 const appRoutes: Routes = [
-  {path: '', component: HomeComponent},
+  {path: 'login', pathMatch: 'full', component: LoginComponent},
   {
-    path: 'crud', component: CrudComponent,
-    children: [
-      {path: 'new', component: ItemComponent},
-      {path: ':id', component: ItemComponent}
-    ]
+    path: '', component: DashboardComponent, canActivate: [LoggedInGuard], children: [
+    {path: 'home', component: HomeComponent},
+    {
+      path: 'crud', component: CrudComponent,
+      children: [
+        {path: 'new', component: ItemComponent},
+        {path: ':id', component: ItemComponent}
+      ]
+    }
+  ]
   }
 ];
 
@@ -23,4 +32,5 @@ const appRoutes: Routes = [
   providers: [],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
