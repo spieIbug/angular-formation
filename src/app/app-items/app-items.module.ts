@@ -5,6 +5,7 @@ import {FormsModule} from '@angular/forms';
 import {ItemsService} from './items.service';
 import {RouterModule} from '@angular/router';
 import { ItemTableListComponent } from './item-table-list/item-table-list.component';
+import { ItemsListFilterPipe } from './items-list-filter.pipe';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { ItemTableListComponent } from './item-table-list/item-table-list.compon
   ],
   declarations: [
     ItemComponent,
-    ItemTableListComponent
+    ItemTableListComponent,
+    ItemsListFilterPipe
   ],
   providers : [ItemsService],
   exports : [ItemComponent, ItemTableListComponent]

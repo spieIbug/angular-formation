@@ -2,22 +2,29 @@
   <thead>
   <tr>
     <th>ID</th>
-    <th>
-      <span *ngIf="!titleFilterDisplay" (dblclick)="displayFilter($event)">TITLE</span>
-      <input *ngIf="titleFilterDisplay" type="text" class="form-control" [(ngModel)] = "filtre.title">
+    <th (dblclick)="displayFilter($event)" #titleHead data-toggle="tooltip"
+        [title]="!titleFilterDisplay ? 'double click to enable filter' : 'press escape to disable filter'">
+      <span *ngIf="!titleFilterDisplay">TITLE</span>
+      <input *ngIf="titleFilterDisplay" type="text" class="form-control" [(ngModel)]="filtre.title" autofocus
+             tabindex="0"
+             placeholder="filter on title"
+             (keydown.esc)="hideFilter()">
     </th>
-    <th>
-      <span *ngIf="!descriptionFilterDisplay" (dblclick)="displayFilter($event)">DESCRIPTION</span>
-      <input *ngIf="descriptionFilterDisplay" type="text" class="form-control" [(ngModel)] = "filtre.description">
+    <th (dblclick)="displayFilter($event)" id="descriptionHead">
+      <span *ngIf="!descriptionFilterDisplay">DESCRIPTION</span>
+      <input *ngIf="descriptionFilterDisplay" type="text" class="form-control" [(ngModel)]="filtre.description"
+             placeholder="filter on description"
+             tabindex="1"
+             (keydown.esc)="hideFilter()">
     </th>
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let item of items">
+  <tr *ngFor="let item of items | itemsListFilter:filtre">
     <td>
       <a class="text-danger" (click)="remove(item)"><i class="fa fa-times"></i></a>
       &nbsp;<a href="" [routerLink]="['/crud', item.id]"><i class="fa fa-pencil-square-o"></i> {{item.id}}
-      </a>
+    </a>
     </td>
     <td>{{item.title}}</td>
     <td>{{item.description}}</td>
