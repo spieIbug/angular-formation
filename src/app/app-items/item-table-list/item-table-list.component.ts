@@ -8,35 +8,20 @@ import {ItemsService} from '../items.service';
 })
 export class ItemTableListComponent implements OnInit {
   private items: Item[];
-  private titleFilterDisplay: boolean;
-  private descriptionFilterDisplay: boolean;
   private filtre: Item = {
     id: null,
     title: '',
     description: ''
   };
 
-  constructor(private itemsService: ItemsService) {
-    this.items = itemsService.findAll();
-  }
+  constructor(private itemsService: ItemsService) {}
 
   ngOnInit() {
-
-  }
-
-  displayFilter($event: MouseEvent) {
-    // to specific! if you want to develop a generic component, make sure to set Id from keys in the JSON Object
-    $event.toElement.id === 'descriptionHead' ? this.descriptionFilterDisplay = true : this.titleFilterDisplay = true;
+    this.items = this.itemsService.findAll();
   }
 
   remove(item: Item): void {
     this.itemsService.remove(item.id);
-  }
-
-  hideFilter() {
-    this.titleFilterDisplay = false;
-    this.descriptionFilterDisplay = false;
-    this.filtre = <Item>{};
   }
 
   updateFilter(filterField: any, key: string) {

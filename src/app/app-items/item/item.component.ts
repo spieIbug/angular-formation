@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {ItemsService} from '../items.service';
 import {Item} from '../item';
 
@@ -15,9 +15,9 @@ export class ItemComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
+    this.route.paramMap.subscribe((params: ParamMap) => {
       // Creates a copy of an object to avoid 2Ways Databinding issue in the list on the left
-      this.item = <Item>{...this.itemsService.findOne(params['id'])};
+      this.item = <Item>{...this.itemsService.findOne(<number> +params.get('id'))};
     });
   }
 
