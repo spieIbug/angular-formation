@@ -1,0 +1,9 @@
+<div (dblclick)="displayFilter($event)" data-toggle="tooltip"
+    [title]="!filterDisplay ? 'double click to enable filter' : 'press escape to disable filter'">
+  <span *ngIf="!filterDisplay">{{title}}</span>
+  <input *ngIf="filterDisplay" type="text" class="form-control" [(ngModel)]="filterField" autofocus
+         tabindex="0"
+         placeholder="{{'filter on '+ title.toLowerCase()}}"
+         (input)="dirty()"
+         (keydown.esc)="hideFilter()">
+</div>

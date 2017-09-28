@@ -6,12 +6,14 @@ import {ItemsService} from './items.service';
 import {RouterModule} from '@angular/router';
 import { ItemTableListComponent } from './item-table-list/item-table-list.component';
 import { ItemsListFilterPipe } from './items-list-filter.pipe';
+import {TableModule} from "../table/table.module";
 
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    TableModule
   ],
   declarations: [
     ItemComponent,

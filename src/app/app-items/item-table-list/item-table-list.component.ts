@@ -7,7 +7,6 @@ import {ItemsService} from '../items.service';
   templateUrl: './item-table-list.component.html'
 })
 export class ItemTableListComponent implements OnInit {
-  @ViewChild('titleHead') titleHeadEl: ElementRef;
   private items: Item[];
   private titleFilterDisplay: boolean;
   private descriptionFilterDisplay: boolean;
@@ -22,7 +21,7 @@ export class ItemTableListComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('here is an example of element ref : ' + this.titleHeadEl.nativeElement);
+
   }
 
   displayFilter($event: MouseEvent) {
@@ -38,6 +37,15 @@ export class ItemTableListComponent implements OnInit {
     this.titleFilterDisplay = false;
     this.descriptionFilterDisplay = false;
     this.filtre = <Item>{};
+  }
+
+  updateFilter(filterField: any, key: string) {
+    this.filtre[key] = filterField;
+  }
+
+  updateField(inputField: any, item: Item, key: String) {
+    item[key] = inputField;
+    this.itemsService.save(item);
   }
 }
 

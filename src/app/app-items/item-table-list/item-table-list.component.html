@@ -1,21 +1,13 @@
+{{filtre}}
 <table class="table table-hover table-bordered">
   <thead>
   <tr>
     <th>ID</th>
-    <th (dblclick)="displayFilter($event)" #titleHead data-toggle="tooltip"
-        [title]="!titleFilterDisplay ? 'double click to enable filter' : 'press escape to disable filter'">
-      <span *ngIf="!titleFilterDisplay">TITLE</span>
-      <input *ngIf="titleFilterDisplay" type="text" class="form-control" [(ngModel)]="filtre.title" autofocus
-             tabindex="0"
-             placeholder="filter on title"
-             (keydown.esc)="hideFilter()">
+    <th>
+      <app-filter-th [filterField]="filtre.title" title="TITRE"  (filterChanged)="updateFilter($event, 'title')"></app-filter-th>
     </th>
-    <th (dblclick)="displayFilter($event)" id="descriptionHead">
-      <span *ngIf="!descriptionFilterDisplay">DESCRIPTION</span>
-      <input *ngIf="descriptionFilterDisplay" type="text" class="form-control" [(ngModel)]="filtre.description"
-             placeholder="filter on description"
-             tabindex="1"
-             (keydown.esc)="hideFilter()">
+    <th>
+      <app-filter-th [filterField]="filtre.description" title="DESCRIPTION"  (filterChanged)="updateFilter($event, 'description')"></app-filter-th>
     </th>
   </tr>
   </thead>
@@ -26,8 +18,12 @@
       &nbsp;<a href="" [routerLink]="['/crud', item.id]"><i class="fa fa-pencil-square-o"></i> {{item.id}}
     </a>
     </td>
-    <td>{{item.title}}</td>
-    <td>{{item.description}}</td>
+    <td>
+      <app-editable-td [inputField]="item.title" title="TITRE"  (inputChanged)="updateField($event, item, 'title')"></app-editable-td>
+    </td>
+    <td>
+      <app-editable-td [inputField]="item.description" title="DESCRIPTION"  (inputChanged)="updateField($event, item, 'description')"></app-editable-td>
+    </td>
   </tr>
   </tbody>
 </table>

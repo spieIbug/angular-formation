@@ -1,0 +1,10 @@
+<div (dblclick)="displayInput($event)" data-toggle="tooltip"
+     [title]="!inputDisplay ? 'double click to enter edition mode' : 'press escape to cancel edition'">
+  <span *ngIf="!inputDisplay">{{inputField}}</span>
+  <input *ngIf="inputDisplay" type="text" class="form-control" [(ngModel)]="inputField" autofocus
+         tabindex="0"
+         placeholder="{{'update field '+ title.toLowerCase()}}"
+         (input)="dirty()"
+         (keydown.esc)="cancelUpdate()"
+         (keydown.enter)="performUpdate()">
+</div>
