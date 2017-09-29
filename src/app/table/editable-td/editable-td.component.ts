@@ -1,5 +1,20 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
+/**
+ * @whatItDoes
+ * This is an editable Cells component
+ * Double click : it display a text input for local editing.
+ * Escape : Cancel local update
+ * Enter : Submit inputChanged event to parent component in order to perform update
+ *
+ * > This component should evoluate, in order to allow type display (text, date, textarea, ...etc.)
+ * @howToUse
+ * ```
+ * <td>
+ *  <app-editable-td [inputField]="yourObject.yourAttribute" title="A SIMPLE TITLE"  (inputChanged)="yourHandler($event, yourObject, 'yourAttribute')"></app-editable-td>
+ * </td>
+ * ```
+ */
 @Component({
   selector: 'app-editable-td',
   templateUrl: './editable-td.component.html'

@@ -1,5 +1,20 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-
+/**
+ * @whatItDoes
+ * This is an filter header component.
+ * Double click : it display a filter (text input).
+ * Escape : it displays the given title
+ * @howToUse
+ * ```
+ * <th>
+ *  <app-filter-th [filterField]="yourFilterObject.yourAttribute" title="A SIMPLE TITLE TO DISPLAY"  (filterChanged)="yourHandler($event, 'yourAttribute')"></app-filter-td>
+ * </th>
+ *
+ * <tr *ngFor="let item of items | yourPipeFilter:yourFilterObject">
+ *     <td>{{item.yourAttribute}}</td>
+ * </tr>
+ * ```
+ */
 @Component({
   selector: 'app-filter-th',
   templateUrl: './filter-th.component.html'
