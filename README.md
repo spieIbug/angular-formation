@@ -2,10 +2,31 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.2.
 
+This project uses localStorage for CRUD. It presents the following concepts :
+- Routing, 
+- Components,
+- Services,
+- Pipes
+- Modules,
+- Guard
+- and Resolver
+
+## requirements
+
+- npm 
+- Webpack
+- @angular/cli
+
+install webpack global with angular/cli
+```
+> npm install -g webpack @angular/cli
+```
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
+> you can run `ng serve --host 0.0.0.0 --port 80 --disable-host-check` for public IP in debug mode. Or
+`ng serve --env=prod --host 0.0.0.0 --port 80 --disable-host-check`
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
