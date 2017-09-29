@@ -5,12 +5,14 @@
   </div>
   <!-- /.box-header -->
   <!-- form start -->
-  <form class="form-horizontal" (ngSubmit)="save()">
+  <form class="form-horizontal" (ngSubmit)="save()" #itemForm="ngForm">
     <div class="box-body">
       <div class="form-group">
         <label for="title" class="col-sm-2 control-label">Title</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="title" name="title" [(ngModel)]="item.title">
+          <input type="text" class="form-control" id="title" name="title" [(ngModel)]="item.title" required minlength="3" #title="ngModel">
+          <div *ngIf="title.hasError('required')">title is required</div>
+          <div *ngIf="title.hasError('minlength')">title should be 3 characters min</div>
         </div>
       </div>
 
@@ -18,14 +20,15 @@
         <label class="col-sm-2 control-label">Description</label>
         <div class="col-sm-10">
           <textarea class="form-control" rows="3" placeholder="Enter ..." name="description"
-                    [(ngModel)]="item.description"></textarea>
+                    [(ngModel)]="item.description" required minlength="10" #title="ngModel">
+          </textarea>
         </div>
       </div>
     </div>
     <!-- /.box-body -->
     <div class="box-footer">
       <a class="btn btn-default" href="" routerLink="/crud">Cancel</a>
-      <button type="submit" class="btn btn-info pull-right">Save</button>
+      <button type="submit" class="btn btn-info pull-right" [disabled]="itemForm.invalid">Save</button>
     </div>
     <!-- /.box-footer -->
   </form>
