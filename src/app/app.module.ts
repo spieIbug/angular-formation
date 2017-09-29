@@ -21,10 +21,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     DashboardComponent
   ],
   imports: [
+    BrowserModule,
     AppRoutingModule,
     AppMainModule,
-    AppItemsModule,
-    BrowserModule
+    AppItemsModule
   ],
   providers: [UserService, LoggedInGuard],
   bootstrap: [AppComponent]

@@ -1,10 +1,11 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {ScreenComponent} from '../app-main/screen-component';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html'
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent extends ScreenComponent implements OnInit {
 
   @Input()
   title = 'Home';
@@ -14,7 +15,9 @@ export class HomeComponent implements OnInit {
 
   @Input()
   icon = 'fa-dashboard';
-  constructor() { }
+  constructor() {
+    super();
+  }
 
   ngOnInit() {
   }

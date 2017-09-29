@@ -1,12 +1,11 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ItemsService} from '../app-items/items.service';
-import {Item} from '../app-items/item';
+import {ScreenComponent} from '../app-main/screen-component';
 
 @Component({
   selector: 'app-crud',
   templateUrl: './crud.component.html'
 })
-export class CrudComponent implements OnInit {
+export class CrudComponent extends ScreenComponent implements OnInit {
 
   @Input()
   title = 'CRUD';
@@ -17,7 +16,9 @@ export class CrudComponent implements OnInit {
   @Input()
   icon = 'fa-table';
 
-  constructor() {}
+  constructor() {
+    super();
+  }
 
   ngOnInit() {
   }
