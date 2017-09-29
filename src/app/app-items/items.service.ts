@@ -1,9 +1,11 @@
-import {Injectable, OnInit} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Item} from './item';
 
 @Injectable()
 export class ItemsService {
   private items: Item[];
+  private API = '200: backend_api/items/';
+
 
   constructor() {
     this.items = [
@@ -25,12 +27,14 @@ export class ItemsService {
   }
 
   findAll(): Item[] {
+    console.log('[GET] ' + this.API);
     return this.items;
   }
 
   findOne(id: number): Item {
+    console.log('[GET] ' + this.API + id);
     for (const item of this.items) {
-      if (item.id == id) {
+      if (item.id === id) {
         return <Item> item;
       }
     }
@@ -38,7 +42,9 @@ export class ItemsService {
   }
 
   remove(id: number): void {
-    this.items.splice(this.items.indexOf(this.findOne(id)), 1);
+    console.log('[DELETE] ' + this.API + id);
+    console.warn('this call should not be performed');
+    this.items.splice(this.items.indexOf(<Item>this.findOne(id)), 1);
     this.persist();
   }
 
@@ -54,8 +60,12 @@ export class ItemsService {
 
   save(item: Item): void {
     if (item.id != null) {
+      console.log('[PUT] ' + this.API);
+      console.log(JSON.stringify(item));
       this.remove(item.id);
     } else {
+      console.log('[POST] ' + this.API);
+      console.log(JSON.stringify(item));
       item.id = this.maxId() + 1;
     }
     this.items.push(item);

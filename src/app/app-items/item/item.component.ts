@@ -8,16 +8,19 @@ import {Item} from '../item';
   templateUrl: './item.component.html'
 })
 export class ItemComponent implements OnInit {
-
+  /**
+   * provided by ItemResolver
+   */
   item: Item;
 
   constructor(private route: ActivatedRoute, private itemsService: ItemsService, private router: Router) {
   }
 
   ngOnInit() {
-    this.route.paramMap.subscribe((params: ParamMap) => {
-      // Creates a copy of an object to avoid 2Ways Databinding issue in the list on the left
-      this.item = <Item>{...this.itemsService.findOne(<number> +params.get('id'))};
+    this.route.data.subscribe(data => this.item = data['item'] ? data['item'] : {
+      id: null,
+      title: null,
+      description: null
     });
   }
 
