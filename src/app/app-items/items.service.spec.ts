@@ -12,4 +12,8 @@ describe('ItemsService', () => {
   it('should be created', inject([ItemsService], (service: ItemsService) => {
     expect(service).toBeTruthy();
   }));
+
+  xit('should return 8 elements', inject([ItemsService], (service: ItemsService) => {
+    expect(service.findAll().length).toEqual(8);
+  }));
 });

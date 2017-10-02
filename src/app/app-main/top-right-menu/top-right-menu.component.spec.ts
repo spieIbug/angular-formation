@@ -1,6 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { TopRightMenuComponent } from './top-right-menu.component';
+import {TopRightMenuComponent} from './top-right-menu.component';
+import {RouterTestingModule} from '@angular/router/testing';
+import {UserService} from '../../user.service';
 
 describe('TopRightMenuComponent', () => {
   let component: TopRightMenuComponent;
@@ -8,9 +10,11 @@ describe('TopRightMenuComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TopRightMenuComponent ]
+      imports: [RouterTestingModule],
+      declarations: [TopRightMenuComponent],
+      providers: [UserService]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

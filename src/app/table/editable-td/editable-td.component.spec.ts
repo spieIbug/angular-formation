@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EditableTdComponent } from './editable-td.component';
+import {FormsModule} from '@angular/forms';
 
 describe('EditableTdComponent', () => {
   let component: EditableTdComponent;
@@ -8,6 +9,7 @@ describe('EditableTdComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [FormsModule],
       declarations: [ EditableTdComponent ]
     })
     .compileComponents();

@@ -12,6 +12,7 @@ export class BreadCrumbComponent implements OnInit {
 
   @Input()
   icon: string;
+
   constructor() { }
 
   ngOnInit() {

@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AdminComponent } from './admin.component';
+import {BreadCrumbComponent} from '../../app-main/bread-crumb/bread-crumb.component';
 
 describe('AdminComponent', () => {
   let component: AdminComponent;
@@ -8,7 +9,7 @@ describe('AdminComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AdminComponent ]
+      declarations: [ AdminComponent , BreadCrumbComponent]
     })
     .compileComponents();
   }));
@@ -16,6 +17,9 @@ describe('AdminComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(AdminComponent);
     component = fixture.componentInstance;
+    component.title = 'admin';
+    component.icon = 'fa-cogs';
+    component.subTitle = 'Administration';
     fixture.detectChanges();
   });
 
