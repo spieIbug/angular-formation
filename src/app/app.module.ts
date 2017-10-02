@@ -1,16 +1,16 @@
 import {NgModule} from '@angular/core';
 
-import {AppComponent} from './app.component';
-import { HomeComponent } from './home/home.component';
-import { CrudComponent } from './crud/crud.component';
-import {AppRoutingModule} from './app-routing/app-routing.module';
-import {AppItemsModule} from './app-items/app-items.module';
-import {AppMainModule} from './app-main/app-main.module';
-import {UserService} from './user.service';
-import {LoggedInGuard} from './logged-in.guard';
-import { LoginComponent } from './login/login.component';
+import {AppComponent} from './components/app.component';
+import { HomeComponent } from './components/home/home.component';
+import { CrudComponent } from './components/crud/crud.component';
+import {AppRoutingModule} from './modules/app-routing/app-routing.module';
+import {AppItemsModule} from './modules/app-items/app-items.module';
+import {AppMainModule} from './modules/app-main/app-main.module';
+import {UserService} from './services/user.service';
+import {LoggedInGuard} from './services/security/logged-in.guard';
+import { LoginComponent } from './components/login/login.component';
 import {BrowserModule} from '@angular/platform-browser';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
