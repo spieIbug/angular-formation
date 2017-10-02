@@ -44,7 +44,10 @@ export class ItemsService {
   remove(id: number): void {
     console.log('[DELETE] ' + this.API + id);
     console.warn('this call should not be performed');
-    this.items.splice(this.items.indexOf(<Item>this.findOne(id)), 1);
+    const indexOf = this.items.indexOf(<Item>this.findOne(id));
+    if (indexOf !== -1) {
+      this.items.splice(indexOf, 1);
+    }
     this.persist();
   }
 
