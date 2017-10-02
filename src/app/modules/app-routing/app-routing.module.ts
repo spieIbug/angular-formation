@@ -7,6 +7,7 @@ import {LoggedInGuard} from '../../services/security/logged-in.guard';
 import {LoginComponent} from '../../components/login/login.component';
 import {DashboardComponent} from '../../components/dashboard/dashboard.component';
 import {ItemResolver} from './resolvers/items/item-resolver';
+import {PermissionsGuard} from "../../services/security/permissions.guard";
 
 
 const appRoutes: Routes = [
@@ -26,7 +27,12 @@ const appRoutes: Routes = [
         }
       ]
     },
-    { path: 'admin', loadChildren: '../admin/admin.module#AdminModule' }
+    {
+      path: 'admin',
+      data: {role: 'admin'},
+      canActivate: [PermissionsGuard],
+      loadChildren: '../admin/admin.module#AdminModule'
+    }
   ]
   }
 ];

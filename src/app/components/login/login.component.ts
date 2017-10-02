@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     if (this.userService.isLoggedIn()) {
-      this.router.navigate([""]);
+      this.router.navigate(['']);
     }
   }
 
@@ -21,7 +21,15 @@ export class LoginComponent implements OnInit {
     this.userService.login()
       .subscribe(() => {
         console.warn('the server should answer me');
-        this.router.navigate([""]);
+        this.router.navigate(['']);
+      });
+  }
+
+  adminLogin(): void {
+    this.userService.adminLogin()
+      .subscribe(() => {
+        console.warn('the server should answer me');
+        this.router.navigate(['']);
       });
   }
 }

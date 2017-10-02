@@ -4,7 +4,7 @@ import {ItemTableListComponent} from './item-table-list.component';
 import {EditableTdComponent} from '../../../table/components/editable-td/editable-td.component';
 import {FilterThComponent} from '../../../table/components/filter-th/filter-th.component';
 import {ItemsListFilterPipe} from '../../Pipes/items-list-filter.pipe';
-import {Route, RouterModule} from '@angular/router';
+import {RouterModule} from '@angular/router';
 import {FormsModule} from '@angular/forms';
 import {ItemsService} from '../../services/items.service';
 import {RouterTestingModule} from '@angular/router/testing';
