@@ -5,9 +5,8 @@ import {UserService} from '../user.service';
 
 @Injectable()
 export class PermissionsGuard implements CanActivate {
-  private userService: UserService;
 
-  constructor(private router: Router, private userService: UserService) {
+  constructor(private userService: UserService) {
   }
 
   canActivate(
