@@ -7,8 +7,8 @@ import {ItemsService} from '../../services/items.service';
   templateUrl: './item-table-list.component.html'
 })
 export class ItemTableListComponent implements OnInit {
-  private items: Item[];
-  private filtre: Item = {
+  public items: Item[];
+  public filtre: Item = {
     id: null,
     title: '',
     description: ''

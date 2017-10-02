@@ -59,6 +59,9 @@ export class UserService {
 
   hasRole(role: string): boolean {
     console.warn('checking role : ' + role);
+    if (!this.token) {
+      return false;
+    }
     const decodeToken = this.jwtHelper.decodeToken(this.token);
     for (let i = 0; i < decodeToken['roles'].length; i++) {
       if (decodeToken['roles'][i] === role) {

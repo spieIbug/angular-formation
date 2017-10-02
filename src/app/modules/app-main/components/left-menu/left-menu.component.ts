@@ -13,4 +13,8 @@ export class LeftMenuComponent implements OnInit {
   ngOnInit() {
   }
 
+  public hasRole(role: string): boolean {
+    return this.userService.hasRole(role);
+  }
+
 }
