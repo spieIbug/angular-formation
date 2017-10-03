@@ -11,7 +11,7 @@ import {LoggedInGuard} from './services/security/logged-in.guard';
 import { LoginComponent } from './components/login/login.component';
 import {BrowserModule} from '@angular/platform-browser';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import {PermissionsGuard} from "./services/security/permissions.guard";
+import {PermissionsGuard} from './services/security/permissions.guard';
 
 @NgModule({
   declarations: [

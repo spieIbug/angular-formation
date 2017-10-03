@@ -9,27 +9,109 @@
     <div class="box-body">
       <div class="form-group">
         <label for="title" class="col-sm-2 control-label">Title</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="title" name="title" [(ngModel)]="item.title" required minlength="3" #title="ngModel">
-          <div *ngIf="title.hasError('required')">title is required</div>
-          <div *ngIf="title.hasError('minlength')">title should be 3 characters min</div>
+        <div [class]="title.invalid && title.dirty ? 'col-sm-9' : 'col-sm-10'">
+          <input type="text" class="form-control" id="title" name="title" [(ngModel)]="item.title" required
+                 minlength="3" #title="ngModel">
         </div>
+        <template #errorPopTemplate>
+          <small class="text-danger" *ngIf="title.hasError('required') && title.dirty">title is required</small>
+          <small class="text-danger" *ngIf="title.hasError('minlength') && title.dirty">title should be 3 characters
+            min
+          </small>
+        </template>
+        <a class="text-danger" [popover]="errorPopTemplate" popoverTitle="Errors" *ngIf="title.invalid && title.dirty"
+           placement="left"><i class="fa fa-question-circle"></i></a>
       </div>
 
       <div class="form-group">
         <label class="col-sm-2 control-label">Description</label>
-        <div class="col-sm-10">
+        <div [class]="description.invalid && description.dirty ? 'col-sm-9' : 'col-sm-10'">
           <textarea class="form-control" rows="3" placeholder="Enter ..." name="description"
-                    [(ngModel)]="item.description" required minlength="10" #title="ngModel">
+                    [(ngModel)]="item.description" required minlength="10" #description="ngModel">
           </textarea>
         </div>
+        <template #descErrorsTemplate>
+          <small class="text-danger" *ngIf="description.hasError('required') && description.dirty">Description is
+            required
+          </small>
+          <small class="text-danger" *ngIf="description.hasError('minlength') && description.dirty">Description should
+            be 10 characters min
+          </small>
+        </template>
+        <a class="text-danger" [popover]="descErrorsTemplate" popoverTitle="Errors" *ngIf="description.invalid && description.dirty"
+           placement="left"><i class="fa fa-question-circle"></i></a>
       </div>
     </div>
     <!-- /.box-body -->
     <div class="box-footer">
       <a class="btn btn-default" href="" routerLink="/crud">Cancel</a>
-      <button type="submit" class="btn btn-info pull-right" [disabled]="itemForm.invalid">Save</button>
+      <button type="submit" class="btn btn-info pull-right" *ngIf="itemForm.valid">Save</button>
     </div>
     <!-- /.box-footer -->
   </form>
+</div>
+<div class="box box-danger">
+  <div class="box-header with-border">
+    <h3 class="box-title">Form validation status</h3>
+    <div class="box-tools pull-right">
+      <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+      <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+    </div>
+  </div>
+  <div class="box-body">
+    <table class="table table-bordered table-hover">
+      <tr>
+        <th>Element</th>
+        <th>Status</th>
+      </tr>
+      <tr [class]="itemForm.submitted ? 'success': 'danger'">
+        <td>Form submitted</td>
+        <td>{{itemForm.submitted}}</td>
+      </tr>
+      <tr [class]="itemForm.valid ? 'success': 'danger'">
+        <td>Form valid</td>
+        <td>{{itemForm.valid}}</td>
+      </tr>
+      <tr [class]="itemForm.invalid ? 'success': 'danger'">
+        <td>Form invalid</td>
+        <td>{{itemForm.invalid}}</td>
+      </tr>
+      <tr [class]="itemForm.pristine ? 'success': 'danger'">
+        <td>Form pristine</td>
+        <td>{{itemForm.pristine}}</td>
+      </tr>
+      <tr [class]="title.valid ? 'success': 'danger'">
+        <td>Title valid</td>
+        <td>{{title.valid}}</td>
+      </tr>
+      <tr [class]="title.invalid ? 'success': 'danger'">
+        <td>Title invalid</td>
+        <td>{{title.invalid}}</td>
+      </tr>
+      <tr [class]="title.dirty ? 'success': 'danger'">
+        <td>Title dirty</td>
+        <td>{{title.dirty}}</td>
+      </tr>
+      <tr [class]="title.pristine ? 'success': 'danger'">
+        <td>Title pristine</td>
+        <td>{{title.pristine}}</td>
+      </tr>
+      <tr [class]="description.valid ? 'success': 'danger'">
+        <td>Description valid</td>
+        <td>{{description.valid}}</td>
+      </tr>
+      <tr [class]="description.invalid ? 'success': 'danger'">
+        <td>Description invalid</td>
+        <td>{{description.invalid}}</td>
+      </tr>
+      <tr [class]="description.dirty ? 'success': 'danger'">
+        <td>Description dirty</td>
+        <td>{{description.dirty}}</td>
+      </tr>
+      <tr [class]="description.pristine ? 'success': 'danger'">
+        <td>Description pristine</td>
+        <td>{{description.pristine}}</td>
+      </tr>
+    </table>
+  </div>
 </div>

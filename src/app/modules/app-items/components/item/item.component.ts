@@ -1,7 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, ParamMap, Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {ItemsService} from '../../services/items.service';
 import {Item} from '../../model/item';
+import {NgModel, ValidationErrors} from '@angular/forms';
+import 'rxjs/operator/map';
+
+// import * as $ from 'jquery'; <- not used yet
+
 
 @Component({
   selector: 'app-item',
@@ -28,5 +33,4 @@ export class ItemComponent implements OnInit {
     this.itemsService.save(this.item);
     this.router.navigate(["crud"]);
   }
-
 }
