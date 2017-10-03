@@ -27,6 +27,10 @@ export class ItemComponent implements OnInit {
 
   save(): void {
     this.itemsService.save(this.item);
-    this.router.navigate(["crud"]);
+    this.router.navigate(['crud']);
+  }
+
+  cancel(): void {
+    this.router.navigate(['crud']);
   }
 }

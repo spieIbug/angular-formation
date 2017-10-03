@@ -5,7 +5,7 @@
   </div>
   <!-- /.box-header -->
   <!-- form start -->
-  <form class="form-horizontal" (ngSubmit)="save()" #itemForm="ngForm">
+  <form class="form-horizontal" (ngSubmit)="itemForm.valid ? save() : null" (keydown.esc)="cancel()" #itemForm="ngForm">
     <div class="box-body">
       <div class="form-group">
         <label for="title" class="col-sm-2 control-label">Title</label>
@@ -38,7 +38,6 @@
   <div class="box-header with-border">
     <h3 class="box-title">Form validation status</h3>
     <div class="box-tools pull-right">
-      <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
       <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
     </div>
   </div>
