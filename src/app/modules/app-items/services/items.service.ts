@@ -76,7 +76,16 @@ export class ItemsService {
   }
 
   private persist(): void {
+    this.items = this.sortByKey(this.items, 'id');
     localStorage.setItem('items', JSON.stringify(this.items));
+  }
+
+  private sortByKey(array: Item[], key: string): Item[] {
+    return array.sort((objectA, objectB) => {
+      const idA = objectA[key];
+      const idB = objectB[key];
+      return ((idA < idB) ? -1 : ((idA > idB) ? 1 : 0));
+    });
   }
 
 
