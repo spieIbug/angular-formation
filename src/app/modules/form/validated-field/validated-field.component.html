@@ -1,13 +1,13 @@
-<ng-template #errorPopTemplate *ngIf="inputRef">
-  <small class="text-danger" *ngIf="inputRef.hasError('required') && inputRef.dirty">{{inputRef.name}} is required
+<ng-template #errorPopTemplate>
+  <small class="text-danger" *ngIf="inputRef && (inputRef.hasError('required') && inputRef.dirty)">{{inputRef.name}} is required
   </small>
-  <small class="text-danger" *ngIf="inputRef.hasError('minlength') && inputRef.dirty">{{inputRef.name}} should be
+  <small class="text-danger" *ngIf="inputRef && (inputRef.hasError('minlength') && inputRef.dirty)">{{inputRef.name}} should be
     {{minLength}} characters min
   </small>
-  <small class="text-danger" *ngIf="inputRef.hasError('maxlength') && inputRef.dirty">{{inputRef.name}} should be
+  <small class="text-danger" *ngIf="inputRef && (inputRef.hasError('maxlength') && inputRef.dirty)">{{inputRef.name}} should be
     {{maxLength}} characters max
   </small>
   <!-- todo : add other validations here-->
-  <a class="text-danger" [popover]="errorPopTemplate" popoverTitle="Errors" *ngIf="inputRef.invalid && inputRef.dirty"
-     placement="left"><i class="fa fa-question-circle"></i></a>
 </ng-template>
+<a class="text-danger" [popover]="errorPopTemplate" popoverTitle="Errors" *ngIf="inputRef && (inputRef.invalid && inputRef.dirty)"
+   placement="left"><i class="fa fa-question-circle"></i></a>
