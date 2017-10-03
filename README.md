@@ -8,8 +8,10 @@ This project uses localStorage for CRUD. It presents the following concepts :
 - Services,
 - Pipes
 - Modules,
-- Guard
-- and Resolver
+- Guard,
+- Forms validation (Template driven),
+- Resolving components,
+- and Testing
 
 ## requirements
 
@@ -25,8 +27,17 @@ install webpack global with angular/cli
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-> you can run `ng serve --host 0.0.0.0 --port 80 --disable-host-check` for public IP in debug mode. Or
-`ng serve --env=prod --host 0.0.0.0 --port 80 --disable-host-check`
+
+you can run 
+```
+> ng serve --host 0.0.0.0 --port 80 --disable-host-check
+```
+for public IP in debug mode. 
+
+Or
+```
+> ng serve --env=prod --host 0.0.0.0 --port 80 --disable-host-check
+```
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
