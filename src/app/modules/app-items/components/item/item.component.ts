@@ -4,9 +4,6 @@ import {ItemsService} from '../../services/items.service';
 import {Item} from '../../model/item';
 import 'rxjs/operator/map';
 
-// import * as $ from 'jquery'; <- not used yet
-
-
 @Component({
   selector: 'app-item',
   templateUrl: './item.component.html'

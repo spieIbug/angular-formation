@@ -4,7 +4,7 @@ import { ItemComponent } from './item.component';
 import {FormsModule} from '@angular/forms';
 import {RouterTestingModule} from '@angular/router/testing';
 import {ItemsService} from '../../services/items.service';
-import {PopoverModule} from 'ngx-bootstrap';
+import {FormModule} from '../../../form/form.module';
 
 describe('ItemComponent', () => {
   let component: ItemComponent;
@@ -12,7 +12,7 @@ describe('ItemComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports : [FormsModule, RouterTestingModule, PopoverModule],
+      imports : [FormsModule, RouterTestingModule, FormModule],
       declarations: [ ItemComponent ],
       providers: [ItemsService]
     })

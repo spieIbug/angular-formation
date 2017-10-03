@@ -31,6 +31,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
+
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
@@ -41,7 +42,7 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 You can run to generate coverage
 ```
-ng test --code-coverage true --progress true --reporters kjhtml
+ng test --code-coverage true --progress true --sourcemaps=false --reporters kjhtml
 ```
 
 ## Running end-to-end tests

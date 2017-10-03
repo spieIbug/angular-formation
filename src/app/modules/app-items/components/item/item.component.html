@@ -9,37 +9,21 @@
     <div class="box-body">
       <div class="form-group">
         <label for="title" class="col-sm-2 control-label">Title</label>
-        <div [class]="title.invalid && title.dirty ? 'col-sm-9' : 'col-sm-10'">
+        <div [class]="titleRef.invalid && titleRef.dirty ? 'col-sm-9' : 'col-sm-10'">
           <input type="text" class="form-control" id="title" name="title" [(ngModel)]="item.title" required
-                 minlength="3" #title="ngModel">
+                 minlength="3" #titleRef="ngModel">
         </div>
-        <ng-template #errorPopTemplate>
-          <small class="text-danger" *ngIf="title.hasError('required') && title.dirty">title is required</small>
-          <small class="text-danger" *ngIf="title.hasError('minlength') && title.dirty">title should be 3 characters
-            min
-          </small>
-        </ng-template>
-        <a class="text-danger" [popover]="errorPopTemplate" popoverTitle="Errors" *ngIf="title.invalid && title.dirty"
-           placement="left"><i class="fa fa-question-circle"></i></a>
+        <app-validated-field [inputRef]="titleRef"></app-validated-field>
       </div>
 
       <div class="form-group">
         <label class="col-sm-2 control-label">Description</label>
-        <div [class]="description.invalid && description.dirty ? 'col-sm-9' : 'col-sm-10'">
+        <div [class]="descriptionRef.invalid && descriptionRef.dirty ? 'col-sm-9' : 'col-sm-10'">
           <textarea class="form-control" rows="3" placeholder="Enter ..." name="description"
-                    [(ngModel)]="item.description" required minlength="10" #description="ngModel">
+                    [(ngModel)]="item.description" required minlength="10" #descriptionRef="ngModel">
           </textarea>
         </div>
-        <ng-template #descErrorsTemplate>
-          <small class="text-danger" *ngIf="description.hasError('required') && description.dirty">Description is
-            required
-          </small>
-          <small class="text-danger" *ngIf="description.hasError('minlength') && description.dirty">Description should
-            be 10 characters min
-          </small>
-        </ng-template>
-        <a class="text-danger" [popover]="descErrorsTemplate" popoverTitle="Errors" *ngIf="description.invalid && description.dirty"
-           placement="left"><i class="fa fa-question-circle"></i></a>
+        <app-validated-field [inputRef]="descriptionRef"></app-validated-field>
       </div>
     </div>
     <!-- /.box-body -->
@@ -80,37 +64,37 @@
         <td>Form pristine</td>
         <td>{{itemForm.pristine}}</td>
       </tr>
-      <tr [class]="title.valid ? 'success': 'danger'">
+      <tr [class]="titleRef.valid ? 'success': 'danger'">
         <td>Title valid</td>
-        <td>{{title.valid}}</td>
+        <td>{{titleRef.valid}}</td>
       </tr>
-      <tr [class]="title.invalid ? 'success': 'danger'">
+      <tr [class]="titleRef.invalid ? 'success': 'danger'">
         <td>Title invalid</td>
-        <td>{{title.invalid}}</td>
+        <td>{{titleRef.invalid}}</td>
       </tr>
-      <tr [class]="title.dirty ? 'success': 'danger'">
+      <tr [class]="titleRef.dirty ? 'success': 'danger'">
         <td>Title dirty</td>
-        <td>{{title.dirty}}</td>
+        <td>{{titleRef.dirty}}</td>
       </tr>
-      <tr [class]="title.pristine ? 'success': 'danger'">
+      <tr [class]="titleRef.pristine ? 'success': 'danger'">
         <td>Title pristine</td>
-        <td>{{title.pristine}}</td>
+        <td>{{titleRef.pristine}}</td>
       </tr>
-      <tr [class]="description.valid ? 'success': 'danger'">
+      <tr [class]="descriptionRef.valid ? 'success': 'danger'">
         <td>Description valid</td>
-        <td>{{description.valid}}</td>
+        <td>{{descriptionRef.valid}}</td>
       </tr>
-      <tr [class]="description.invalid ? 'success': 'danger'">
+      <tr [class]="descriptionRef.invalid ? 'success': 'danger'">
         <td>Description invalid</td>
-        <td>{{description.invalid}}</td>
+        <td>{{descriptionRef.invalid}}</td>
       </tr>
-      <tr [class]="description.dirty ? 'success': 'danger'">
+      <tr [class]="descriptionRef.dirty ? 'success': 'danger'">
         <td>Description dirty</td>
-        <td>{{description.dirty}}</td>
+        <td>{{descriptionRef.dirty}}</td>
       </tr>
-      <tr [class]="description.pristine ? 'success': 'danger'">
+      <tr [class]="descriptionRef.pristine ? 'success': 'danger'">
         <td>Description pristine</td>
-        <td>{{description.pristine}}</td>
+        <td>{{descriptionRef.pristine}}</td>
       </tr>
     </table>
   </div>

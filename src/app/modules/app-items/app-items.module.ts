@@ -5,17 +5,18 @@ import {ItemsService} from './services/items.service';
 import {RouterModule} from '@angular/router';
 import {ItemTableListComponent} from './components/item-table-list/item-table-list.component';
 import {ItemsListFilterPipe} from './Pipes/items-list-filter.pipe';
-import {TableModule} from '../table/table.module';
 import {CommonModule} from '@angular/common';
-import {PopoverModule} from 'ngx-bootstrap';
+
+import {TableModule} from '../table/table.module';
+import {FormModule} from '../form/form.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    PopoverModule.forRoot(),
     RouterModule,
-    TableModule
+    TableModule,
+    FormModule
   ],
   declarations: [
     ItemComponent,
